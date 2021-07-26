@@ -1,0 +1,23 @@
+name: ENV
+on:
+  push:
+  workflow_dispatch:
+jobs:
+  Build:
+    name: hanakaru
+    runs-on: self-hosted
+    strategy:
+      max-parallel: 20
+      fail-fast: false
+      matrix:
+        hanakaru: [1.4, 1.5, 1.6, 1.7]
+        flag: [A, B, C, D, E]
+    timeout-minutes: 2000
+    env:
+        NUM_JOBS: 20
+    steps:
+    - name: Setup
+      uses: actions/checkout@v1
+    - name: Install
+      run: |
+        uname -a
